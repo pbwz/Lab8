@@ -49,11 +49,21 @@ public class CustomList extends ArrayAdapter<City> {
         return cities.size();
     }
 
+    /**
+     * Adds a city to the list
+     * @param city city object
+     */
     public void addCity(City city){
         cities.add(city);
     }
+
+    /**
+     * Check if a city is in the list
+     * @param city city object
+     * @return true if yes, false if no
+     */
     public boolean hasCity(City city) {
-        return false;
+        return cities.contains(city);
     }
 
 }
