@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 //import org.junit.Before;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -63,6 +64,23 @@ public class CustomListTest {
         list.addCity(city);
         list.deleteCity(city);
         Assertions.assertFalse(list.hasCity(city));
+    }
+
+    /**
+     * check if countCities works correctly.
+     * start with a mock city list, get its count
+     * add one to it and see if the difference is 1
+     * on the next countCities call.
+     */
+    @Test
+    public void countCitiesTest(){
+        list = MockCityList();
+        Integer preCheck = list.countCities();
+        City city = new City("Calmar", "AB");
+        list.addCity(city);
+        Integer postCheck = list.countCities();
+        int difference = postCheck - preCheck;
+        assertEquals(1, difference);
     }
 
 }
